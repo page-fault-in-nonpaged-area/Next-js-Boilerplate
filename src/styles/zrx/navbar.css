@@ -1,0 +1,105 @@
+/* -----------------------------------------
+   BASE AND DARK MODE STYLES
+----------------------------------------- */
+.interface-navbar-base {
+  position: fixed;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-bottom: 1px solid var(--zrx-white-cc);
+  padding-left: 1rem;
+  transition: all 300ms ease-in-out; /* Match sidebar transition exactly */
+}
+
+.dark .interface-navbar-base {
+  border-bottom: 1px solid var(--material-dark-dp01);
+  background-color: var(--material-dark-dp01);
+}
+
+/* Note to self - Apple safari may trip on this */
+.interface-navbar-base-nb {
+  position: fixed;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid transparent;
+  padding-left: 1rem;
+  transition: all 300ms ease-in-out; /* Match sidebar transition exactly */
+  background-color: var(--zrx-white-ff);
+}
+
+.dark .interface-navbar-base-nb {
+  background: none;
+}
+
+/* -----------------------------------------
+   BUTTON STYLES
+----------------------------------------- */
+.interface-navbar-btn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition-property: all;
+  transition-duration: 300ms;
+}
+
+.dark .interface-navbar-btn {
+  color: var(--zrx-white-ff);
+}
+
+/* -----------------------------------------
+   BREADCRUMB STYLES
+----------------------------------------- */
+.breadcrumb-highlight {
+  height: 30px;
+  color: var(--zrx-black-222);
+  transition-property: all;
+  transition-duration: 300ms;
+
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.breadcrumb-highlight:hover {
+  color: black;
+  background-color: var(--zrx-white-cc);
+  border-radius: 0.5rem;
+}
+
+.dark .breadcrumb-highlight {
+  color: var(--zrx-white-dd);
+}
+
+.dark .breadcrumb-highlight:hover {
+  color: var(--zrx-black-333);
+  background-color: var(--zrx-white-cc);
+  border-radius: 0.5rem;
+}
+
+.breadcrumb-background {
+  height: 30px;
+  color: var(--zrx-white-aa);
+  transition-property: all;
+  transition-duration: 300ms;
+
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.breadcrumb-background:hover {
+  background-color: var(--zrx-white-cc);
+  border-radius: 0.5rem;
+  color: var(--zrx-black-222);
+}
+
+.dark .breadcrumb-background:hover {
+  color: var(--zrx-black-333);
+  background-color: var(--zrx-white-cc);
+  border-radius: 0.5rem;
+}

@@ -1,0 +1,35 @@
+/* Safari Mobile Fixes */
+:root {
+  --safari-height: 100vh;
+}
+
+@supports (-webkit-touch-callout: none) {
+  /* Only target iOS devices */
+  .safari-mobile-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    height: var(--safari-height);
+  }
+
+  .safari-mobile-content {
+    display: flex;
+    flex-direction: column;
+    height: var(--safari-height) !important;
+  }
+
+  .safari-mobile-scroll {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    flex: 1;
+    position: relative;
+  }
+
+  /* Fix 100vh for iOS */
+  .h-screen {
+    height: var(--safari-height);
+  }
+}

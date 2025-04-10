@@ -1,0 +1,227 @@
+@layer base {
+  :root {
+    /* zrx ui primary colors */
+    --zrx-primary-normal: rgb(0, 122, 255);
+    --zrx-primary-normal-10: rgba(0, 122, 255, 0.1);
+    --zrx-primary-normal-18: rgba(0, 122, 255, 0.18);
+    --zrx-primary-normal-35: rgba(0, 122, 255, 0.35);
+    --zrx-primary-normal-45: rgba(0, 122, 255, 0.45);
+    --zrx-primary-normal-58: rgba(0, 122, 255, 0.58);
+    --zrx-primary-normal-88: rgba(0, 122, 255, 0.88);
+    --zrx-primary-dark-normal: #14273b;
+    --zrx-primary-dark-text: #33a2ff;
+    --zrx-primary-deep: #0062cc;
+
+    /* zrx warning colors */
+    --zrx-warning-normal: rgb(255, 149, 0);
+    --zrx-warning-normal-10: rgba(255, 149, 0, 0.1);
+    --zrx-warning-normal-18: rgba(255, 149, 0, 0.18);
+    --zrx-warning-normal-35: rgba(255, 149, 0, 0.35);
+    --zrx-warning-normal-45: rgba(255, 149, 0, 0.45);
+    --zrx-warning-normal-58: rgba(255, 149, 0, 0.58);
+    --zrx-warning-normal-88: rgba(255, 149, 0, 0.88);
+    --zrx-warning-dark-normal: #3d2c00;
+    --zrx-warning-dark-text: #f5a623;
+    --zrx-warning-deep: #e68600;
+
+    /* zrx danger colors */
+    --zrx-danger-normal: rgb(255, 59, 48);
+    --zrx-danger-normal-10: rgba(255, 59, 48, 0.1);
+    --zrx-danger-normal-18: rgba(255, 59, 48, 0.18);
+    --zrx-danger-normal-35: rgba(255, 59, 48, 0.35);
+    --zrx-danger-normal-45: rgba(255, 59, 48, 0.45);
+    --zrx-danger-normal-58: rgba(255, 59, 48, 0.58);
+    --zrx-danger-normal-88: rgba(255, 59, 48, 0.88);
+    --zrx-danger-dark-normal: #3b0d0c;
+    --zrx-danger-dark-text: #ff3b30;
+    --zrx-danger-deep: #ff3b30;
+
+    /* zrx success colors */
+    --zrx-success-normal: rgb(76, 217, 100);
+    --zrx-success-normal-10: rgba(76, 217, 100, 0.1);
+    --zrx-success-normal-18: rgba(76, 217, 100, 0.18);
+    --zrx-success-normal-26: rgba(76, 217, 100, 0.26);
+    --zrx-success-normal-35: rgba(76, 217, 100, 0.35);
+    --zrx-success-normal-45: rgba(76, 217, 100, 0.45);
+    --zrx-success-normal-58: rgba(76, 217, 100, 0.58);
+    --zrx-success-normal-88: rgba(54, 143, 68, 0.88);
+    --zrx-success-dark-normal: #1b5e20;
+    --zrx-success-dark-text: #368f44;
+    --zrx-success-deep: #368f44;
+
+    /* zrx white/light colors */
+    --zrx-white-r138: rgba(138, 138, 138, 1);
+    --zrx-white-r195: rgba(195, 195, 195, 1);
+    --zrx-white-r235: rgba(235, 235, 235, 1);
+    --zrx-white-ff: #ffffff;
+    --zrx-white-f3: #f3f3f3;
+    --zrx-white-f8: #f8f8f8;
+    --zrx-white-e6: #e6e6e6;
+    --zrx-white-d6: #d6d6d6;
+    --zrx-white-f6: #f6f6f6;
+    --zrx-white-f0: #f0f0f0;
+    --zrx-white-f1: #f1f1f1;
+    --zrx-white-aa: #aaaaaa;
+    --zrx-white-bb: #bbbbbb;
+    --zrx-white-cc: #cccccc;
+    --zrx-white-dd: #dddddd;
+    --zrx-white-r255-80: rgba(255, 255, 255, 0.8);
+
+    /* zrx black/dark colors */
+    --zrx-black-222: #222222;
+    --zrx-black-333: #333333;
+    --zrx-black-444: #444444;
+    --zrx-black-555: #555555;
+    --zrx-black-666: #666666;
+    --zrx-black-777: #777777;
+    --zrx-black-888: #888888;
+    --zrx-black-999: #999999;
+    --zrx-black-r25: rgba(25, 25, 25, 1);
+    --zrx-black-r35: rgba(35, 35, 35, 1);
+    --zrx-black-r45: rgba(45, 45, 45, 1);
+    --zrx-black-r50: rgba(50, 50, 50, 1);
+    --zrx-black-r55: rgba(55, 55, 55, 1);
+    --zrx-black-r60: rgba(60, 60, 60, 1);
+    --zrx-black-r65: rgba(65, 65, 65, 1);
+    --zrx-black-r75: rgba(75, 75, 75, 1);
+    --zrx-black-r80: rgba(80, 80, 80, 1);
+    --zrx-black-r89: rgba(89, 89, 89, 1);
+
+    /* material dark colors */
+    --material-dark-dp00: #121212;
+    --material-dark-dp01: #1e1e1e;
+    --material-dark-dp02: #222222;
+    --material-dark-dp03: #242424;
+    --material-dark-dp04: #272727;
+    --material-dark-dp06: #2c2c2c;
+    --material-dark-dp08: #2e2e2e;
+    --material-dark-dp12: #333333;
+    --material-dark-dp16: #343434;
+    --material-dark-dp18: rgb(22, 22, 22);
+    --material-dark-dp24: #222222;
+    --material-dark-dpd18: #161616;
+  }
+}
+
+/* Utility classes for accessing the color variables */
+@layer utilities {
+  .text-zrx-primary-normal {
+    color: var(--zrx-primary-normal);
+  }
+  .text-zrx-primary-deep {
+    color: var(--zrx-primary-deep);
+  }
+  .bg-zrx-primary-normal {
+    background-color: var(--zrx-primary-normal);
+  }
+  .bg-zrx-primary-normal-10 {
+    background-color: var(--zrx-primary-normal-10);
+  }
+  .bg-zrx-primary-normal-18 {
+    background-color: var(--zrx-primary-normal-18);
+  }
+  .bg-zrx-primary-normal-35 {
+    background-color: var(--zrx-primary-normal-35);
+  }
+  .bg-zrx-primary-normal-45 {
+    background-color: var(--zrx-primary-normal-45);
+  }
+  .bg-zrx-primary-normal-58 {
+    background-color: var(--zrx-primary-normal-58);
+  }
+  .bg-zrx-primary-normal-88 {
+    background-color: var(--zrx-primary-normal-88);
+  }
+  .border-zrx-primary-normal-88 {
+    border-color: var(--zrx-primary-normal-88);
+  }
+
+  /* Similarly for other color variants */
+  .text-zrx-white-ff {
+    color: var(--zrx-white-ff);
+  }
+  .bg-zrx-white-ff {
+    background-color: var(--zrx-white-ff);
+  }
+
+  /* Success variant utilities */
+  .text-zrx-success-deep {
+    color: var(--zrx-success-deep);
+  }
+  .bg-zrx-success-deep {
+    background-color: var(--zrx-success-deep);
+  }
+  .bg-zrx-success-normal-10 {
+    background-color: var(--zrx-success-normal-10);
+  }
+  .bg-zrx-success-normal-26 {
+    background-color: var(--zrx-success-normal-26);
+  }
+  .bg-zrx-success-normal-35 {
+    background-color: var(--zrx-success-normal-35);
+  }
+  .bg-zrx-success-normal-45 {
+    background-color: var(--zrx-success-normal-45);
+  }
+  .border-zrx-success-normal-88 {
+    border-color: var(--zrx-success-normal-88);
+  }
+  .border-zrx-success-deep {
+    border-color: var(--zrx-success-deep);
+  }
+
+  /* Danger variant utilities */
+  .text-zrx-danger-deep {
+    color: var(--zrx-danger-deep);
+  }
+  .bg-zrx-danger-deep {
+    background-color: var(--zrx-danger-deep);
+  }
+  .bg-zrx-danger-normal-10 {
+    background-color: var(--zrx-danger-normal-10);
+  }
+  .bg-zrx-danger-normal-18 {
+    background-color: var(--zrx-danger-normal-18);
+  }
+  .bg-zrx-danger-normal-35 {
+    background-color: var(--zrx-danger-normal-35);
+  }
+  .bg-zrx-danger-normal-45 {
+    background-color: var(--zrx-danger-normal-45);
+  }
+  .bg-zrx-danger-normal-58 {
+    background-color: var(--zrx-danger-normal-58);
+  }
+  .border-zrx-danger-normal-88 {
+    border-color: var(--zrx-danger-normal-88);
+  }
+  .border-zrx-danger-deep {
+    border-color: var(--zrx-danger-deep);
+  }
+
+  /* Warning variant utilities */
+  .text-zrx-warning-deep {
+    color: var(--zrx-warning-deep);
+  }
+  .bg-zrx-warning-deep {
+    background-color: var(--zrx-warning-deep);
+  }
+  .bg-zrx-warning-normal-10 {
+    background-color: var(--zrx-warning-normal-10);
+  }
+  .bg-zrx-warning-normal-18 {
+    background-color: var(--zrx-warning-normal-18);
+  }
+  .bg-zrx-warning-normal-45 {
+    background-color: var(--zrx-warning-normal-45);
+  }
+  .bg-zrx-warning-normal-58 {
+    background-color: var(--zrx-warning-normal-58);
+  }
+  .border-zrx-warning-normal-88 {
+    border-color: var(--zrx-warning-normal-88);
+  }
+  .border-zrx-warning-deep {
+    border-color: var(--zrx-warning-deep);
+  }
+}

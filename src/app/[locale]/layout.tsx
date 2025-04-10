@@ -1,9 +1,12 @@
+import type { NavigationConfig } from '@/components/zrx/layout/layout';
+import type { UserMenuItem } from '@/components/zrx/layout/usermenu';
 import type { Metadata } from 'next';
 import { PostHogProvider } from '@/components/analytics/PostHogProvider';
-import { DemoBadge } from '@/components/DemoBadge';
+import ZrxLayoutWithProviders from '@/components/zrx/layout/layout';
 import { routing } from '@/libs/i18nNavigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
+import { ThemeProvider } from 'next-themes';
 import { notFound } from 'next/navigation';
 import '@/styles/global.css';
 
@@ -47,25 +50,91 @@ export default async function RootLayout(props: {
   }
 
   setRequestLocale(locale);
-
-  // Using internationalization in Client Components
   const messages = await getMessages();
 
-  // The `suppressHydrationWarning` attribute in <body> is used to prevent hydration errors caused by Sentry Overlay,
-  // which dynamically adds a `style` attribute to the body tag.
+  const navigationConfig: NavigationConfig[] = [
+    {
+      path: '/components',
+      label: 'Components',
+      iconName: 'dashboard',
+      section: 'main',
+    },
+    {
+      path: '/blog/1',
+      label: 'Blog 1',
+      iconName: 'bookmark',
+      section: 'main',
+    },
+
+    {
+      path: '/blog/2',
+      label: 'Blog 2',
+      iconName: 'star',
+      section: 'main',
+    },
+
+    {
+      path: '/blog/3',
+      label: 'Blog 3',
+      iconName: 'flag',
+      section: 'main',
+    },
+
+    {
+      path: '/settings/1',
+      label: 'Settings 1',
+      iconName: 'settings',
+      section: 'settings',
+    },
+    {
+      path: '/settings/2',
+      label: 'Settings 2',
+      iconName: 'stack',
+      section: 'settings',
+    },
+  ];
+
+  const userMenuItems: UserMenuItem[] = [
+    {
+      id: 'notifications',
+      label: 'Notifications',
+      icon: 'notification',
+      path: '/notifications',
+      count: 3,
+    },
+    {
+      id: 'settings',
+      label: 'Settings',
+      icon: 'settings',
+      path: '/settings',
+    },
+    {
+      id: 'logout',
+      label: 'Logout',
+      icon: 'logout',
+    },
+  ];
 
   return (
-    <html lang={locale}>
-      <body suppressHydrationWarning>
-        <NextIntlClientProvider
-          locale={locale}
-          messages={messages}
+    <html lang={locale} suppressHydrationWarning>
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          themes={['light', 'dark']}
         >
-          <PostHogProvider>
-            {props.children}
-          </PostHogProvider>
-          <DemoBadge />
-        </NextIntlClientProvider>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <PostHogProvider>
+              <ZrxLayoutWithProviders
+                navigationConfig={navigationConfig}
+                userMenuItems={userMenuItems}
+              >
+                {props.children}
+              </ZrxLayoutWithProviders>
+            </PostHogProvider>
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,0 +1,198 @@
+/* Base container for the textarea component */
+.zrx-textarea-container {
+  width: 100%;
+  position: relative;
+}
+
+.zrx-textarea-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Base textarea styling */
+.zrx-textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #aaa;
+  border-radius: 7px;
+  font-size: 14px;
+  line-height: 1.5;
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease !important;
+  resize: vertical;
+  box-sizing: border-box;
+  color: inherit;
+}
+
+.zrx-textarea::placeholder {
+  color: #a3a3a3;
+}
+
+/* Dark mode textarea styling */
+.dark .zrx-textarea {
+  background-color: #2c2c2c; /* Lighter shade to match ZrxInput */
+  color: #ffffff;
+  border: 1px solid rgba(80, 80, 80, 1);
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease !important;
+}
+
+.dark .zrx-textarea::placeholder {
+  color: rgba(150, 150, 150, 1);
+}
+
+/* Hover state */
+.zrx-textarea:hover:not(.zrx-textarea-disabled) {
+  border-color: #007bff;
+}
+
+.dark .zrx-textarea:hover:not(.zrx-textarea-disabled) {
+  border-color: #007aff;
+}
+
+/* Focus state */
+.zrx-textarea:focus:not(.zrx-textarea-disabled) {
+  border: 1px solid #007bff !important;
+}
+
+.dark .zrx-textarea:focus:not(.zrx-textarea-disabled) {
+  border-color: #007aff;
+}
+
+/* Character counter */
+.zrx-textarea-counter {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-size: 12px;
+  color: #a3a3a3;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+.dark .zrx-textarea-counter {
+  color: rgba(150, 150, 150, 1);
+  background-color: rgba(30, 30, 30, 0.8);
+}
+
+/* Success state styling */
+.zrx-textarea-success {
+  border-color: rgba(54, 143, 68, 0.88);
+}
+
+.zrx-textarea-success:hover:not(.zrx-textarea-disabled) {
+  border-color: #007bff;
+}
+
+.dark .zrx-textarea-success:hover:not(.zrx-textarea-disabled) {
+  border-color: #007aff;
+}
+
+.dark .zrx-textarea-success {
+  border-color: rgba(54, 143, 68, 0.88);
+}
+
+/* Error state styling */
+.zrx-textarea-error {
+  border-color: red;
+}
+
+.zrx-textarea-error:hover:not(.zrx-textarea-disabled) {
+  border-color: #007bff;
+}
+
+.dark .zrx-textarea-error {
+  border-color: #ff3b30;
+}
+
+.dark .zrx-textarea-error:hover:not(.zrx-textarea-disabled) {
+  border-color: #007aff;
+}
+
+/* Tooltip styling */
+.zrx-textarea-tooltip-container {
+  position: relative;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.zrx-textarea-tooltip {
+  background: rgba(76, 217, 100, 0.1);
+  color: #368f44;
+  border: 1px solid rgba(54, 143, 68, 0.88);
+  border-radius: 7px;
+  padding: 4px 8px;
+  position: relative;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.zrx-textarea-tooltip-error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid red;
+}
+
+.zrx-textarea-tooltip-arrow {
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+/* Dark mode tooltips */
+.dark .zrx-textarea-tooltip.zrx-textarea-tooltip-success {
+  background: #368f44;
+  color: #fff;
+  border-color: #368f44;
+}
+
+.dark .zrx-textarea-tooltip.zrx-textarea-tooltip-error {
+  background: #ff3b30;
+  color: #fff;
+  border-color: #ff3b30;
+}
+
+/* Disabled state */
+.zrx-textarea-disabled {
+  background-color: #f3f3f3 !important;
+  border: 1px solid #aaa !important;
+  color: #aaa !important;
+  cursor: not-allowed !important;
+  pointer-events: auto !important;
+  resize: none !important;
+}
+
+.zrx-textarea-disabled::placeholder {
+  color: #ccc !important;
+}
+
+/* Dark mode disabled state */
+.dark .zrx-textarea-disabled {
+  background-color: rgba(30, 30, 30, 1) !important;
+  border: 1px solid rgba(75, 75, 75, 1) !important;
+  color: #4b4b4b !important;
+}
+
+.dark .zrx-textarea-disabled::placeholder {
+  color: rgba(75, 75, 75, 1) !important;
+}
+
+/* Make sure disabled overrides other states */
+.zrx-textarea.zrx-textarea-success.zrx-textarea-disabled,
+.zrx-textarea.zrx-textarea-error.zrx-textarea-disabled {
+  background-color: #f3f3f3 !important;
+  border: 1px solid #aaa !important;
+}
+
+.dark .zrx-textarea.zrx-textarea-success.zrx-textarea-disabled,
+.dark .zrx-textarea.zrx-textarea-error.zrx-textarea-disabled {
+  background-color: rgba(30, 30, 30, 1) !important;
+  border: 1px solid rgba(75, 75, 75, 1) !important;
+}

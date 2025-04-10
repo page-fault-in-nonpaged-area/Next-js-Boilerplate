@@ -1,0 +1,242 @@
+/*
+  iOS-style Tabbar base styling with mobile compatibility fixes
+*/
+.interface-tabbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 56px;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  width: 100%;
+  transform: translateZ(0); /* Force GPU acceleration */
+  will-change: transform;
+  transition: background-color 0.3s ease; /* Smooth transition between modes */
+}
+
+.dark .interface-tabbar {
+  background-color: rgba(30, 30, 30, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Tab button styling */
+.interface-tabbar-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+  padding: 6px 0;
+  transition: all 0.2s ease;
+  transform: translateZ(0); /* Force GPU acceleration */
+  position: relative; /* For active indicator */
+}
+
+/* Active state indicator - pill shape above icon */
+.interface-tabbar-btn-active::before {
+  content: '';
+  position: absolute;
+  top: -1px; /* Position at the top edge */
+  width: 32px;
+  height: 3px;
+  border-radius: 1.5px;
+  background-color: var(--zrx-primary-normal);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  transform: translateZ(0); /* Force GPU acceleration */
+}
+
+.dark .interface-tabbar-btn-active::before {
+  background-color: var(--zrx-primary-dark-text);
+}
+
+.interface-tabbar-btn-active {
+  color: var(--zrx-primary-normal);
+}
+
+.interface-tabbar-btn-inactive {
+  color: var(--zrx-black-888);
+}
+
+.dark .interface-tabbar-btn-active {
+  color: var(--zrx-primary-dark-text);
+}
+
+.dark .interface-tabbar-btn-inactive {
+  color: var(--zrx-white-cc);
+}
+
+/* Icon styling */
+.interface-tabbar-icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 2px;
+  transform: translateZ(0); /* Force GPU acceleration */
+  transition:
+    color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.interface-tabbar-icon-active {
+  color: var(--zrx-primary-normal);
+  transform: translateY(0) scale(1.05);
+}
+
+.interface-tabbar-icon-inactive {
+  color: var(--zrx-black-888);
+}
+
+.dark .interface-tabbar-icon-active {
+  color: var(--zrx-primary-dark-text);
+}
+
+.dark .interface-tabbar-icon-inactive {
+  color: var(--zrx-white-cc);
+}
+
+/* Label styling */
+.interface-tabbar-label {
+  font-size: 10px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.2;
+  transform: translateZ(0); /* Force GPU acceleration */
+  transition: color 0.2s ease;
+}
+
+.interface-tabbar-label-active {
+  color: var(--zrx-primary-normal);
+}
+
+.interface-tabbar-label-inactive {
+  color: var(--zrx-black-888);
+}
+
+.dark .interface-tabbar-label-active {
+  color: var(--zrx-primary-dark-text);
+}
+
+.dark .interface-tabbar-label-inactive {
+  color: var(--zrx-white-cc);
+}
+
+/* More button styling */
+.interface-tabbar-more-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+  color: var(--zrx-black-888);
+  transition: color 0.2s ease;
+  cursor: pointer; /* Add pointer cursor */
+}
+
+.dark .interface-tabbar-more-btn {
+  color: var(--zrx-white-cc);
+}
+
+.interface-tabbar-more-dots {
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+/* More menu dropdown styling */
+.interface-tabbar-more-menu {
+  position: fixed;
+  bottom: 64px; /* Position above the tabbar, accounting for safe area */
+  right: 8px; /* Align to right with some margin */
+  min-width: 200px;
+  max-width: 280px;
+  background-color: var(--zrx-white-ff);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000; /* Higher than tabbar */
+  overflow-y: auto;
+  max-height: 70vh;
+  border: 1px solid var(--zrx-white-e6);
+  transform: translateZ(0); /* Force GPU acceleration */
+}
+
+.dark .interface-tabbar-more-menu {
+  background-color: var(--material-dark-dp06);
+  border-color: var(--zrx-black-555);
+}
+
+.interface-tabbar-menu-item {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.interface-tabbar-menu-item-active {
+  background-color: var(--zrx-primary-normal-10);
+}
+
+.dark .interface-tabbar-menu-item-active {
+  background-color: rgba(51, 162, 255, 0.15);
+}
+
+/* Animation keyframes */
+@keyframes menuIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes menuOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+.animate-menu-in {
+  animation: menuIn 0.2s ease forwards;
+}
+
+.animate-menu-out {
+  animation: menuOut 0.2s ease forwards;
+}
+
+/* Safe area inset for iOS devices */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .interface-tabbar {
+    padding-bottom: env(safe-area-inset-bottom);
+    height: calc(56px + env(safe-area-inset-bottom));
+  }
+
+  .interface-tabbar-more-menu {
+    bottom: calc(64px + env(safe-area-inset-bottom));
+  }
+}
+
+/* Fix for Chrome mobile address bar appearance/disappearance */
+@media screen and (max-height: 450px) {
+  .interface-tabbar {
+    position: sticky;
+  }
+}
+
+/* Touch device optimizations */
+@media (pointer: coarse) {
+  .interface-tabbar-btn {
+    padding: 8px 0;
+  }
+}

@@ -1,0 +1,214 @@
+/* -----------------------------------------
+   ACTIVE BUTTON STYLES
+----------------------------------------- */
+.interface-sidebar-active-btn {
+  display: flex;
+  margin-top: 0.5rem;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  border: 1px solid transparent;
+  transition-property: all;
+  transition-duration: 300ms;
+  padding-left: 0.75rem;
+  border-radius: 0.5rem;
+  background-color: var(--zrx-white-dd);
+  color: var(--zrx-black-222);
+  transition: all 0.3s;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 0px 100px 0px;
+  line-height: 38px;
+  min-height: 38px;
+  cursor: pointer;
+}
+
+.interface-sidebar-active-btn-icon {
+  color: var(--zrx-black-222);
+  transition-property: all;
+  transition-duration: 300ms;
+}
+
+.dark .interface-sidebar-active-btn-icon {
+  color: var(--zrx-white-dd);
+}
+
+.dark .interface-sidebar-active-btn-icon-collapsed:hover {
+  color: var(--zrx-black-222);
+}
+
+/* -----------------------------------------
+   INACTIVE BUTTON STYLES
+----------------------------------------- */
+.interface-sidebar-inactive-btn {
+  display: flex;
+  margin-top: 0.5rem;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  transition-property: all;
+  transition-duration: 300ms;
+  padding-left: 0.75rem;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: transparent;
+  color: var(--zrx-black-222);
+  transition: all 0.3s;
+  line-height: 38px;
+  min-height: 38px;
+  cursor: pointer;
+}
+
+.interface-sidebar-inactive-btn-icon,
+.interface-sidebar-inactive-btn-icon-collapsed {
+  color: var(--zrx-black-222);
+  transition-property: all;
+  transition-duration: 100ms;
+}
+
+.dark .interface-sidebar-inactive-btn-icon,
+.dark .interface-sidebar-inactive-btn-icon-collapsed {
+  color: var(--zrx-white-dd);
+}
+
+.dark .interface-sidebar-inactive-btn-icon-collapsed:hover {
+  color: var(--zrx-black-222);
+  transition-property: all;
+  transition-duration: 100ms;
+}
+
+/* -----------------------------------------
+   COLLAPSED BUTTON STYLES
+----------------------------------------- */
+.interface-sidebar-inactive-btn-collapsed {
+  display: flex;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  transition-property: all;
+  transition-duration: 300ms;
+  border-width: 1px;
+  border-color: transparent;
+  color: var(--zrx-black-222);
+}
+
+.interface-sidebar-active-btn-collapsed {
+  display: flex;
+  padding: 0.25rem;
+  padding-top: 0.5rem;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  transition-property: all;
+  transition-duration: 300ms;
+
+  padding-left: 1rem;
+  margin-left: 0;
+  margin-right: 0;
+  border-radius: 0;
+  border-color: transparent;
+  background-color: var(--zrx-white-dd);
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.1);
+  line-height: 38px;
+  min-height: 50px;
+  cursor: pointer;
+}
+
+.dark .interface-sidebar-active-btn-collapsed {
+  background-color: #383838;
+  color: var(--zrx-white-dd);
+}
+
+.interface-sidebar-inactive-btn-collapsed {
+  display: flex;
+  padding: 0.25rem;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  padding-top: 0.5rem;
+  transition-property: all;
+  transition-duration: 300ms;
+
+  padding-left: 1rem;
+  margin-left: 0;
+  margin-right: 0;
+  border-width: 1px;
+  border-color: transparent;
+  line-height: 38px;
+  min-height: 50px;
+  cursor: pointer;
+}
+
+.interface-sidebar-inactive-btn-collapsed:hover,
+.interface-sidebar-active-btn-collapsed:hover {
+  background-color: var(--zrx-white-cc);
+}
+
+.dark .interface-sidebar-active-btn-collapsed:hover,
+.dark .interface-sidebar-inactive-btn-collapsed:hover {
+  background-color: var(--zrx-white-cc);
+  color: var(--zrx-black-222) !important;
+}
+
+/* -----------------------------------------
+   HOVER EFFECTS
+----------------------------------------- */
+.group:hover .interface-sidebar-active-btn-icon-collapsed,
+.group:hover .interface-sidebar-inactive-btn-icon-collapsed {
+  color: var(--zrx-black-222);
+}
+
+/* -----------------------------------------
+   HOVER STATES FOR ACTIVE AND INACTIVE BUTTONS
+----------------------------------------- */
+.interface-sidebar-active-btn:hover,
+.interface-sidebar-inactive-btn:hover {
+  background-color: var(--zrx-white-dd);
+}
+
+.dark .interface-sidebar-active-btn:hover,
+.dark .interface-sidebar-inactive-btn:hover {
+  border: 1px solid #555;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* -----------------------------------------
+   SIDEBAR BASE AND DARK MODE STYLES
+----------------------------------------- */
+.interface-sidebar-base {
+  height: 100%;
+  padding: 1rem;
+  padding-top: 0;
+  overflow: hidden;
+  transition: all 300ms ease-in-out; /* Changed to ease-in-out */
+  background-color: var(--zrx-white-f8);
+  z-index: 51;
+}
+
+.dark .interface-sidebar-base {
+  background-color: #242424;
+
+  border-color: #242424;
+}
+
+.dark .interface-sidebar-active-btn {
+  background-color: var(--material-dark-dp16);
+  border-width: 1px;
+  border-color: var(--zrx-black-555);
+  color: var(--zrx-white-dd);
+}
+
+.dark .interface-sidebar-inactive-btn {
+  color: var(--zrx-white-dd);
+}
+
+.interface-sidebar-collapse-icon {
+  color: var(--zrx-black-222);
+  transition: all 300ms ease-in-out; /* Changed to match sidebar transition */
+}
+
+.dark .interface-sidebar-collapse-icon {
+  color: var(--zrx-white-dd);
+}
+
+.sidebar-header-title {
+  color: var(--zrx-black-444);
+  height: 24px;
+}
+
+.dark .sidebar-header-title {
+  color: var(--zrx-black-999);
+}

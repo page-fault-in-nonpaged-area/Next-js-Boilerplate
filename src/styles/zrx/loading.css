@@ -1,0 +1,31 @@
+/* Loading skeleton animation */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Base skeleton style */
+.zrx-skeleton {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background-color: var(--zrx-white-e6);
+}
+
+/* Dark mode variant */
+.dark .zrx-skeleton {
+  background-color: var(--zrx-black-r45);
+}
+
+/* Featured image skeleton - slightly different shade */
+.zrx-skeleton-feature {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background-color: var(--zrx-white-f0);
+}
+
+.dark .zrx-skeleton-feature {
+  background-color: var(--zrx-black-r35);
+}

@@ -1,0 +1,303 @@
+/*
+=====================================================
+Base AlertBar Style
+=====================================================
+*/
+.zrx-alertbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  border-radius: 6px;
+  padding: 16px 16px 16px 52px; /* Adjusted to accommodate icon */
+  margin-bottom: 16px;
+  overflow: hidden;
+  /* Add border in light mode to prevent layout shift */
+  border: 1px solid rgba(225, 225, 225, 0.8);
+}
+
+/* Vertical accent line using pseudo-element */
+.zrx-alertbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+}
+
+/* Content area */
+.zrx-alertbar__content {
+  flex: 1;
+  padding-right: 24px; /* Space for close button */
+}
+
+/* Title styling */
+.zrx-alertbar__title {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+/* Message styling */
+.zrx-alertbar__message {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Close button */
+.zrx-alertbar__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.zrx-alertbar__close:hover {
+  opacity: 1;
+}
+
+.zrx-alertbar__close svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Icon styling */
+.zrx-alertbar__icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.zrx-alertbar__icon svg {
+  stroke-width: 2;
+  width: 18px;
+  height: 18px;
+}
+
+/*
+=====================================================
+Variants - Light Mode - Updated to match button borders
+=====================================================
+*/
+
+/* Primary variant */
+.zrx-alertbar--primary {
+  /* Update background to exactly match button background */
+  background-color: rgba(0, 122, 255, 0.1); /* bg-zrx_primary-normal_10 */
+  color: #0052cc;
+}
+
+/* Match button border color - this is already correct */
+.zrx-alertbar--primary::before {
+  background-color: rgba(0, 122, 255, 0.88); /* border-zrx_primary-normal_88 */
+}
+
+.zrx-alertbar--primary .zrx-alertbar__close {
+  color: #3b82f6;
+}
+
+.zrx-alertbar--primary .zrx-alertbar__icon {
+  color: #0052cc;
+}
+
+/* Secondary variant */
+.zrx-alertbar--secondary {
+  background-color: rgba(107, 114, 128, 0.1);
+  color: #4b5563;
+}
+
+/* Match button border color */
+.zrx-alertbar--secondary::before {
+  background-color: rgba(138, 138, 138, 1); /* border-zrx_white-r138 */
+}
+
+.zrx-alertbar--secondary .zrx-alertbar__close {
+  color: #6b7280;
+}
+
+.zrx-alertbar--secondary .zrx-alertbar__icon {
+  color: #4b5563;
+}
+
+/* Warning variant */
+.zrx-alertbar--warning {
+  background-color: rgba(251, 191, 36, 0.1);
+  color: #92400e;
+}
+
+/* Match button border color exactly */
+.zrx-alertbar--warning::before {
+  background-color: rgba(255, 152, 0, 0.88); /* border-zrx_warning-normal_88 */
+}
+
+/* Update to a darker amber color for better visibility */
+.zrx-alertbar--warning .zrx-alertbar__close {
+  color: #b45309; /* Darker amber that's more visible */
+}
+
+.zrx-alertbar--warning .zrx-alertbar__icon {
+  color: #92400e;
+}
+
+/* Success variant */
+.zrx-alertbar--success {
+  background-color: rgba(34, 197, 94, 0.1);
+  color: #166534;
+}
+
+/* Match button border color exactly */
+.zrx-alertbar--success::before {
+  background-color: rgba(52, 199, 89, 0.88); /* border-zrx_success-normal_88 */
+}
+
+.zrx-alertbar--success .zrx-alertbar__close {
+  color: #22c55e;
+}
+
+.zrx-alertbar--success .zrx-alertbar__icon {
+  color: #166534;
+}
+
+/* Danger variant */
+.zrx-alertbar--danger {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #b91c1c;
+}
+
+/* Match button border color exactly */
+.zrx-alertbar--danger::before {
+  background-color: rgba(255, 69, 58, 0.88); /* border-zrx_danger-normal_88 */
+}
+
+.zrx-alertbar--danger .zrx-alertbar__close {
+  color: #ef4444;
+}
+
+.zrx-alertbar--danger .zrx-alertbar__icon {
+  color: #b91c1c;
+}
+
+/*
+=====================================================
+Variants - Dark Mode - Updated to match button backgrounds
+=====================================================
+*/
+
+/* Dark mode base */
+.dark .zrx-alertbar {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Primary variant - dark mode */
+.dark .zrx-alertbar--primary {
+  background-color: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+}
+
+/* Match button background color */
+.dark .zrx-alertbar--primary::before {
+  background-color: rgb(8, 122, 209); /* bg-zrx_primary-normal */
+}
+
+.dark .zrx-alertbar--primary .zrx-alertbar__close {
+  color: #93c5fd;
+}
+
+.dark .zrx-alertbar--primary .zrx-alertbar__icon {
+  color: #93c5fd;
+}
+
+/* Secondary variant - dark mode */
+.dark .zrx-alertbar--secondary {
+  background-color: rgba(156, 163, 175, 0.15);
+  color: #d1d5db;
+}
+
+/* Match button background color */
+.dark .zrx-alertbar--secondary::before {
+  background-color: rgba(80, 80, 80, 1); /* bg-zrx_black-r80 */
+}
+
+.dark .zrx-alertbar--secondary .zrx-alertbar__close {
+  color: #d1d5db;
+}
+
+.dark .zrx-alertbar--secondary .zrx-alertbar__icon {
+  color: #d1d5db;
+}
+
+/* Warning variant - dark mode */
+.dark .zrx-alertbar--warning {
+  background-color: rgba(251, 191, 36, 0.15);
+  color: #fcd34d;
+}
+
+/* Match button background color - updated to match zrx-button--warning */
+.dark .zrx-alertbar--warning::before {
+  background-color: #cc7a00; /* Exact match to button's bg-zrx_warning-deep */
+}
+
+.dark .zrx-alertbar--warning .zrx-alertbar__close {
+  color: #fcd34d;
+}
+
+.dark .zrx-alertbar--warning .zrx-alertbar__icon {
+  color: #fcd34d;
+}
+
+/* Success variant - dark mode */
+.dark .zrx-alertbar--success {
+  background-color: rgba(34, 197, 94, 0.15);
+  color: #86efac;
+}
+
+/* Match button background color - updated with correct color code */
+.dark .zrx-alertbar--success::before {
+  background-color: #368f44; /* Corrected success color */
+}
+
+.dark .zrx-alertbar--success .zrx-alertbar__close {
+  color: #86efac;
+}
+
+.dark .zrx-alertbar--success .zrx-alertbar__icon {
+  color: #86efac;
+}
+
+/* Danger variant - dark mode */
+.dark .zrx-alertbar--danger {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+}
+
+/* Match button background color - updated with correct color code */
+.dark .zrx-alertbar--danger::before {
+  background-color: #d32f2f; /* Corrected danger color to match button */
+}
+
+.dark .zrx-alertbar--danger .zrx-alertbar__close {
+  color: #fca5a5;
+}
+
+.dark .zrx-alertbar--danger .zrx-alertbar__icon {
+  color: #fca5a5;
+}

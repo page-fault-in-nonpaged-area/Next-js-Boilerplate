@@ -1,0 +1,528 @@
+/* Base select container */
+.zrx-select-container {
+  width: 100%;
+  position: relative;
+}
+
+/* Select wrapper */
+.zrx-select-wrapper {
+  position: relative;
+}
+
+/* Select input appearance */
+.zrx-select {
+  display: flex;
+  align-items: stretch; /* Changed from center to stretch */
+  height: 38px;
+  padding: 0;
+  border: 1px solid #aaa;
+  border-radius: 7px;
+  background-color: transparent;
+  position: relative;
+  transition: border-color 0.3s ease;
+  overflow: hidden; /* Ensure content doesn't overflow the rounded corners */
+}
+
+/* Select hover styling */
+.zrx-select:hover:not(.zrx-select_disabled) {
+  border-color: #007bff;
+}
+
+.zrx-select:hover:not(.zrx-select_disabled) .zrx-select-button {
+  border-left-color: #007bff; /* Match hover border color */
+}
+
+/* Dark mode select styling */
+.dark .zrx-select {
+  background-color: #2c2c2c;
+  color: #ffffff;
+  border: 1px solid rgba(80, 80, 80, 1);
+}
+
+.dark .zrx-select:hover:not(.zrx-select_disabled) {
+  border-color: #007aff;
+}
+
+.dark .zrx-select:hover:not(.zrx-select_disabled) .zrx-select-button {
+  border-left-color: #007aff; /* Match dark hover border color */
+}
+
+/* Select placeholder */
+.zrx-select-placeholder {
+  color: #a3a3a3;
+}
+
+.dark .zrx-select-placeholder {
+  color: rgba(150, 150, 150, 1);
+}
+
+/* Select value */
+.zrx-select-value {
+  flex: 1;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Arrow container */
+.zrx-select-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+}
+
+/* Arrow icon */
+.zrx-select-icon {
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+/* Rotate arrow when dropdown is open */
+.zrx-select-icon-open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown styling */
+.zrx-select-dropdown {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  max-height: 300px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  /* Remove any transitions */
+  transition: none !important;
+  /* Use GPU acceleration but avoid fixed position jitter on iOS */
+  transform: translateZ(0);
+  will-change: transform;
+  /* Avoid any potential animation */
+  animation: none;
+}
+
+/* Dark mode dropdown */
+.dark .zrx-select-dropdown {
+  background-color: rgba(30, 30, 30, 1);
+  border: 1px solid rgba(80, 80, 80, 1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Search container */
+.zrx-select-search-container {
+  padding: 0 8px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  height: 38px;
+  box-sizing: border-box;
+}
+
+.dark .zrx-select-search-container {
+  border-bottom: 1px solid rgba(80, 80, 80, 1);
+}
+
+/* Search icon */
+.zrx-select-search-icon {
+  color: #a3a3a3;
+  margin-right: 0px;
+  margin-left: 6px;
+}
+
+.dark .zrx-select-search-icon {
+  color: rgba(150, 150, 150, 1);
+}
+
+/* Search input */
+.zrx-select-search {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  color: inherit;
+  height: 38px;
+  line-height: 38px;
+  padding: 0 0 0 8px;
+  box-sizing: border-box;
+}
+
+.zrx-select-search::placeholder {
+  color: #a3a3a3;
+}
+
+.dark .zrx-select-search::placeholder {
+  color: rgba(150, 150, 150, 1);
+}
+
+/* Options container */
+.zrx-select-options {
+  overflow-y: auto;
+  max-height: 250px;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent; /* Firefox */
+}
+
+/* Webkit browsers (Chrome, Safari, newer Edge) */
+.zrx-select-options::-webkit-scrollbar {
+  width: 8px;
+}
+
+.zrx-select-options::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 4px;
+}
+
+.zrx-select-options::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.zrx-select-options::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode scrollbar */
+.dark .zrx-select-options {
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent; /* Firefox */
+}
+
+.dark .zrx-select-options::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.dark .zrx-select-options::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Show scrollbar on hover only in Firefox */
+@supports (scrollbar-width: thin) {
+  .zrx-select-options {
+    scrollbar-width: thin;
+  }
+}
+
+/* Add some padding for scrollbar in Chrome/Safari */
+@supports (-webkit-appearance: none) {
+  .zrx-select-options {
+    padding-right: 0px;
+  }
+}
+
+/* Option styling - adjusted for exact 38px height */
+.zrx-select-option {
+  padding: 7px 14px;
+  cursor: pointer;
+  min-height: 38px;
+  line-height: 24px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.zrx-select-option:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.dark .zrx-select-option:hover {
+  background-color: rgba(0, 123, 255, 0.2);
+}
+
+/* Selected option */
+.zrx-select-option-selected {
+  background-color: rgba(0, 123, 255, 0.1);
+  font-weight: 500;
+}
+
+.dark .zrx-select-option-selected {
+  background-color: rgba(0, 123, 255, 0.25);
+}
+
+/* No options found */
+.zrx-select-no-options {
+  padding: 7px 14px;
+  text-align: center;
+  color: #a3a3a3;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark .zrx-select-no-options {
+  color: rgba(150, 150, 150, 1);
+}
+
+/* Disabled state */
+.zrx-select_disabled {
+  background-color: #f3f3f3;
+  border: 1px solid #aaa;
+  color: #aaa;
+  cursor: not-allowed !important; /* Override cursor */
+}
+
+.zrx-select_disabled .zrx-select-value {
+  cursor: not-allowed;
+  color: #aaa;
+}
+
+.zrx-select_disabled .zrx-select-button {
+  background-color: #f3f3f3;
+  border-left: 1px solid #aaa;
+  cursor: not-allowed;
+  color: #aaa;
+}
+
+.zrx-select_disabled .zrx-select-icon {
+  color: #aaa;
+}
+
+.zrx-select_disabled .zrx-select-placeholder {
+  color: #ccc;
+}
+
+/* Dark mode disabled state - completely defined */
+.dark .zrx-select_disabled {
+  background-color: rgba(30, 30, 30, 1);
+  border: 1px solid rgba(75, 75, 75, 1);
+  color: #4b4b4b;
+  cursor: not-allowed !important;
+}
+
+.dark .zrx-select_disabled .zrx-select-value {
+  color: #4b4b4b;
+}
+
+.dark .zrx-select_disabled .zrx-select-button {
+  background-color: rgba(30, 30, 30, 1);
+  border-left-color: rgba(75, 75, 75, 1);
+}
+
+.dark .zrx-select_disabled .zrx-select-icon {
+  color: #4b4b4b;
+}
+
+.dark .zrx-select_disabled .zrx-select-placeholder {
+  color: rgba(75, 75, 75, 1);
+}
+
+/* Error/Success state styling */
+.zrx-select-success {
+  border-color: rgba(54, 143, 68, 0.88);
+}
+
+.dark .zrx-select-success {
+  border-color: rgba(54, 143, 68, 0.88);
+}
+
+.zrx-select-success .zrx-select-button {
+  border-left-color: rgba(54, 143, 68, 0.88);
+}
+
+/* Success state hover - override with hover color */
+.zrx-select-success:hover:not(.zrx-select_disabled) {
+  border-color: #007bff;
+}
+
+.zrx-select-success:hover:not(.zrx-select_disabled) .zrx-select-button {
+  border-left-color: #007bff;
+}
+
+.dark .zrx-select-success:hover:not(.zrx-select_disabled) {
+  border-color: #007aff;
+}
+
+.dark .zrx-select-success:hover:not(.zrx-select_disabled) .zrx-select-button {
+  border-left-color: #007aff;
+}
+
+.zrx-select-error {
+  border-color: red;
+}
+
+.dark .zrx-select-error {
+  border-color: red;
+}
+
+.zrx-select-error .zrx-select-button {
+  border-left-color: red;
+}
+
+/* Error state hover - override with hover color */
+.zrx-select-error:hover:not(.zrx-select_disabled) {
+  border-color: #007bff;
+}
+
+.zrx-select-error:hover:not(.zrx-select_disabled) .zrx-select-button {
+  border-left-color: #007bff;
+}
+
+.dark .zrx-select-error:hover:not(.zrx-select_disabled) {
+  border-color: #007aff;
+}
+
+.dark .zrx-select-error:hover:not(.zrx-select_disabled) .zrx-select-button {
+  border-left-color: #007aff;
+}
+
+/* Tooltip styles */
+.zrx-select-tooltip-container {
+  position: relative;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.zrx-select-tooltip {
+  background: rgba(76, 217, 100, 0.1);
+  color: #368f44;
+  border: 1px solid rgba(54, 143, 68, 0.88);
+  border-radius: 7px;
+  padding: 4px 8px;
+  position: relative;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.zrx-select-tooltip-error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid red;
+}
+
+.zrx-select-tooltip-arrow {
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+/* Dark mode tooltips */
+.dark .zrx-select-tooltip.zrx-select-tooltip-success {
+  background: #368f44;
+  color: #fff;
+  border-color: #368f44;
+}
+
+.dark .zrx-select-tooltip.zrx-select-tooltip-error {
+  background: #ff3b30;
+  color: #fff;
+  border-color: #ff3b30;
+}
+
+/* Arrow button styling like the stepper buttons */
+.zrx-select-button {
+  width: 38px;
+  min-width: 38px; /* Prevent shrinking */
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  border-left: 1px solid #aaa; /* Match default border color */
+  border-radius: 0 6px 6px 0; /* Adjusted to avoid pixel rounding issues */
+  cursor: pointer;
+  transition:
+    border-color 0.3s ease,
+    background-color 0.2s ease; /* Add border transition */
+  padding: 0;
+  flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+/* Button hover state */
+.zrx-select-button:hover:not(:disabled) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark .zrx-select-button:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Button active state */
+.zrx-select-button:active:not(:disabled),
+.zrx-select-button-active:not(:disabled) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark .zrx-select-button:active:not(:disabled),
+.dark .zrx-select-button-active:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Button in disabled state */
+.zrx-select-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Fix border colors when select has states */
+.zrx-select-success .zrx-select-button {
+  border-left-color: rgba(54, 143, 68, 0.88);
+}
+
+.zrx-select-error .zrx-select-button {
+  border-left-color: red;
+}
+
+.dark .zrx-select-success .zrx-select-button {
+  border-left-color: rgba(54, 143, 68, 0.88);
+}
+
+.dark .zrx-select-error .zrx-select-button {
+  border-left-color: #ff3b30;
+}
+
+/* Apply box-sizing to all elements for consistency */
+.zrx-select,
+.zrx-select-button,
+.zrx-select-value,
+.zrx-select-dropdown,
+.zrx-select-search,
+.zrx-select-option {
+  box-sizing: border-box;
+}
+
+/* manual fixes */
+
+.dark .zrx-select-button {
+  border-left: 1px solid rgba(80, 80, 80, 1);
+}
+
+/*
+=====================================================
+Grid select variant - optimized for ZrxGrid
+=====================================================
+*/
+/* Remove all grid-specific CSS styles */
+
+/* Add proper styling for dropdown in grid context */
+body > .zrx-select-dropdown {
+  position: fixed;
+  z-index: 9999 !important; /* Very high z-index to avoid issues */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.dark body > .zrx-select-dropdown {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure select in grid cells is properly sized */
+.zrx-grid-cell .zrx-select {
+  width: 100%;
+  background-color: #fff; /* Ensure white background in light mode */
+}
+
+.dark .zrx-grid-cell .zrx-select {
+  background-color: #2c2c2c; /* Dark background in dark mode */
+}

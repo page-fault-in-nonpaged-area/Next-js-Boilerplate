@@ -1,0 +1,102 @@
+/*
+=====================================================
+Banner Alert Styles - Part of the navbar/header
+=====================================================
+*/
+
+/* Banner styling */
+.zrx-banner {
+  width: 100%;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  word-wrap: break-word; /* Allow long words to break */
+  overflow-wrap: break-word; /* Modern version of word-wrap */
+  white-space: normal; /* Allow line breaks */
+  line-height: 1.5; /* Give some breathing room for wrapped text */
+}
+
+/* Primary (blue) */
+.zrx-banner--primary {
+  background-color: rgba(0, 122, 255, 0.1);
+  color: #0052cc;
+  border-bottom-color: rgba(0, 122, 255, 0.88); /* Matching alertbar primary border color */
+}
+
+/* Secondary (gray) */
+.zrx-banner--secondary {
+  background-color: rgba(107, 114, 128, 0.1);
+  color: #4b5563;
+  border-bottom-color: rgba(138, 138, 138, 1); /* Matching alertbar secondary border color */
+}
+
+/* Warning (yellow/orange) */
+.zrx-banner--warning {
+  background-color: rgba(251, 191, 36, 0.1);
+  color: #92400e;
+  border-bottom-color: rgba(255, 152, 0, 0.88); /* Matching alertbar warning border color */
+}
+
+/* Success (green) */
+.zrx-banner--success {
+  background-color: var(--zrx-success-normal-10);
+  color: var(--zrx-success-deep);
+  border-bottom-color: var(--zrx-success-normal-88); /* Matching alertbar success border color */
+}
+
+/* Danger (red) */
+.zrx-banner--danger {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #b91c1c;
+  border-bottom-color: rgba(255, 69, 58, 0.88); /* Matching alertbar danger border color */
+}
+
+/* Dark mode variants */
+.dark .zrx-banner--primary {
+  background-color: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom-color: rgb(8, 122, 209); /* Matching dark mode alertbar primary border */
+}
+
+.dark .zrx-banner--secondary {
+  background-color: rgba(156, 163, 175, 0.15);
+  color: #d1d5db;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom-color: rgba(80, 80, 80, 1); /* Matching dark mode alertbar secondary border */
+}
+
+.dark .zrx-banner--warning {
+  background-color: rgba(251, 191, 36, 0.15);
+  color: #fcd34d;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom-color: #cc7a00; /* Matching dark mode alertbar warning border */
+}
+
+.dark .zrx-banner--success {
+  background-color: rgba(76, 217, 100, 0.15);
+  color: #86efac;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom-color: var(--zrx-success-deep); /* Matching dark mode alertbar success border */
+}
+
+.dark .zrx-banner--danger {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom-color: #d32f2f; /* Matching dark mode alertbar danger border */
+}
+
+/* Link styling within banners */
+.zrx-banner a {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.zrx-banner a:hover {
+  text-decoration: none;
+}

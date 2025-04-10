@@ -1,0 +1,466 @@
+@layer components {
+  /*
+  =====================================================
+  Base Button Style
+  =====================================================
+  */
+  .zrx-button {
+    font-family: 'Inter', sans-serif;
+    @apply cursor-pointer text-center align-middle;
+    min-width: 34px;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 36px;
+    letter-spacing: 1px;
+    border-radius: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    user-select: none;
+    white-space: normal;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 2px 0px 0px;
+  }
+
+  /*
+  =====================================================
+  Sizing and variants
+  =====================================================
+  */
+  .zrx-button--normal,
+  .zrx-button--multiline {
+    font-family: 'Inter', sans-serif;
+    @apply cursor-pointer text-center align-middle;
+    min-width: 34px;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 36.5px;
+    letter-spacing: 1px;
+    border-radius: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    user-select: none;
+    white-space: normal;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 2px 0px 0px;
+    max-height: 38px;
+  }
+
+  .zrx-button--single-line {
+    font-family: 'Inter', sans-serif;
+    @apply cursor-pointer text-center align-middle;
+    min-width: 34px;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 38px;
+    letter-spacing: 1px;
+    border-radius: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    user-select: none;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 2px 0px 0px;
+    white-space: nowrap;
+    max-height: 38px;
+  }
+
+  /*
+  =====================================================
+  Grid button variant - optimized for ZrxGrid
+  =====================================================
+  */
+  .zrx-button--grids {
+    font-family: 'Inter', sans-serif;
+    @apply cursor-pointer text-center align-middle;
+    min-width: 28px;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 30px;
+    letter-spacing: 0.5px;
+    border-radius: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    user-select: none;
+    white-space: normal;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 2px 0px 0px;
+    max-height: 30px;
+  }
+
+  /* Make grid buttons more compact when they have icons */
+  .zrx-button--grids > svg {
+    @apply m-0 mx-auto;
+  }
+
+  /* When used in grid cells, ensure proper spacing */
+  .zrx-grid-cell .zrx-button--grids {
+    @apply inline-flex items-center justify-center m-0;
+  }
+
+  /* For buttons side by side in a grid cell */
+  .zrx-grid-cell .zrx-button--grids + .zrx-button--grids {
+    @apply ml-1;
+  }
+
+  /*
+  =====================================================
+  Standard disabled
+  =====================================================
+  */
+  .zrx-button--disabled {
+    @apply cursor-not-allowed;
+    border: 1px solid var(--zrx-white-aa);
+    background-color: #f3f3f3 !important;
+    color: #ccc !important;
+    box-shadow: none !important;
+    border-color: #aaa !important;
+  }
+
+  .zrx-button--disabled:hover {
+    background-color: #f3f3f3 !important;
+    color: #ccc !important;
+    @apply cursor-not-allowed;
+    border-color: #aaa !important;
+    box-shadow: none !important;
+  }
+
+  .zrx-button--disabled:active {
+    background-color: #f3f3f3 !important;
+    color: #ccc !important;
+    border-color: #aaa !important;
+  }
+
+  .dark .zrx-button--disabled {
+    background-color: var(--material-dark-dp02) !important;
+    color: rgba(75, 75, 75, 1) !important;
+    border: 1px solid rgba(75, 75, 75, 1) !important;
+    box-shadow: none !important;
+  }
+
+  .dark .zrx-button--disabled:hover {
+    background-color: var(--material-dark-dp02) !important;
+    color: rgba(75, 75, 75, 1) !important;
+    border: 1px solid rgba(75, 75, 75, 1) !important;
+  }
+
+  .dark .zrx-button--disabled:active {
+    background-color: var(--material-dark-dp02) !important;
+    color: rgba(75, 75, 75, 1) !important;
+    border: 1px solid rgba(75, 75, 75, 1) !important;
+  }
+
+  /* Ensure disabled state overrides all button variants */
+  .zrx-button--primary.zrx-button--disabled,
+  .zrx-button--secondary.zrx-button--disabled,
+  .zrx-button--warning.zrx-button--disabled,
+  .zrx-button--danger.zrx-button--disabled,
+  .zrx-button--success.zrx-button--disabled {
+    border-color: #aaa !important;
+    box-shadow: none !important;
+  }
+
+  .dark .zrx-button--primary.zrx-button--disabled,
+  .dark .zrx-button--secondary.zrx-button--disabled,
+  .dark .zrx-button--warning.zrx-button--disabled,
+  .dark .zrx-button--danger.zrx-button--disabled,
+  .dark .zrx-button--success.zrx-button--disabled {
+    border-color: rgba(75, 75, 75, 1) !important;
+    box-shadow: none !important;
+  }
+
+  /*
+  =====================================================
+  primary & primary dark
+  =====================================================
+  */
+  .zrx-button--primary {
+    background-color: var(--zrx-primary-normal-10);
+    color: var(--zrx-primary-deep);
+    @apply border border-solid;
+    border-color: var(--zrx-primary-normal-88);
+    box-shadow:
+      rgba(0, 122, 255, 0.05) 0px 6px 24px 0px,
+      rgba(0, 122, 255, 0.08) 0px 0px 0px 1px;
+    transition: background-color 0.3s ease;
+  }
+
+  .zrx-button--primary:hover {
+    background-color: var(--zrx-primary-normal-18);
+    transition: background-color 0.3s ease;
+  }
+
+  .zrx-button--primary:active {
+    background-color: var(--zrx-primary-normal-35);
+    transition: background-color 0.3s ease;
+  }
+
+  .dark .zrx-button--primary {
+    color: var(--zrx-white-ff);
+    border-color: var(--zrx-primary-deep);
+    background: rgb(8, 122, 209);
+    transition: background-color 0.3s ease;
+  }
+
+  .dark .zrx-button--primary:hover {
+    background-color: var(--zrx-primary-normal-58);
+    transition: background-color 0.3s ease;
+  }
+
+  .dark .zrx-button--primary:active {
+    background-color: var(--zrx-primary-normal-45);
+    transition: background-color 0.3s ease;
+  }
+
+  /*
+  =====================================================
+  secondary & secondary dark
+  =====================================================
+  */
+  .zrx-button--secondary {
+    background-color: var(--zrx-white-ff);
+    color: var(--zrx-black-333);
+    @apply border border-solid;
+    border-color: var(--zrx-white-r138);
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  .zrx-button--secondary:hover {
+    background-color: var(--zrx-white-f0);
+    color: var(--zrx-black-222);
+  }
+
+  .zrx-button--secondary:active {
+    background-color: var(--zrx-white-d6);
+    color: var(--zrx-black-222);
+  }
+
+  .dark .zrx-button--secondary {
+    color: var(--zrx-white-ff);
+    background-color: var(--zrx-black-r80);
+    @apply border border-solid;
+    border-color: var(--zrx-black-r75);
+    transition: background-color 0.3s ease;
+  }
+
+  .dark .zrx-button--secondary:hover {
+    background-color: var(--zrx-black-r65);
+    color: var(--zrx-white-ff);
+  }
+
+  .dark .zrx-button--secondary:active {
+    color: var(--zrx-white-ff);
+  }
+
+  /*
+  =====================================================
+  warning & warning dark
+  =====================================================
+  */
+  .zrx-button--warning {
+    background-color: var(--zrx-warning-normal-10);
+    color: var(--zrx-warning-deep);
+    @apply border border-solid;
+    border-color: var(--zrx-warning-normal-88);
+    box-shadow:
+      rgba(255, 152, 0, 0.05) 0px 6px 24px 0px,
+      rgba(255, 152, 0, 0.08) 0px 0px 0px 1px;
+    transition: background-color 0.3s ease;
+  }
+
+  .zrx-button--warning:hover {
+    background-color: var(--zrx-warning-normal-18);
+    transition: background-color 0.3s ease;
+  }
+
+  .zrx-button--warning:active {
+    background-color: var(--zrx-warning-normal-45);
+    transition: background-color 0.3s ease;
+  }
+
+  .dark .zrx-button--warning {
+    background-color: var(--zrx-warning-deep);
+    color: var(--zrx-white-ff);
+    border-color: var(--zrx-warning-deep);
+    transition: background-color 0.3s ease;
+  }
+
+  .dark .zrx-button--warning:hover {
+    background-color: var(--zrx-warning-normal-58);
+    transition: background-color 0.3s ease;
+  }
+
+  .dark .zrx-button--warning:active {
+    background-color: var(--zrx-warning-normal-45);
+    transition: background-color 0.3s ease;
+  }
+
+  /*
+  =====================================================
+  danger & danger dark
+  =====================================================
+  */
+  .zrx-button--danger {
+    background-color: var(--zrx-danger-normal-10);
+    color: var(--zrx-danger-deep);
+    @apply border border-solid;
+    border-color: var(--zrx-danger-normal-88);
+    box-shadow:
+      rgba(255, 69, 58, 0.05) 0px 6px 24px 0px,
+      rgba(255, 69, 58, 0.08) 0px 0px 0px 1px;
+    transition: background-color 0.3s ease;
+  }
+
+  .zrx-button--danger:hover {
+    background-color: var(--zrx-danger-normal-18);
+    transition: background-color 0.3s ease;
+  }
+
+  .zrx-button--danger:active {
+    background-color: var(--zrx-danger-normal-35);
+    transition: background-color 0.3s ease;
+  }
+
+  .dark .zrx-button--danger {
+    background-color: var(--zrx-danger-deep);
+    color: var(--zrx-white-ff);
+    border-color: var(--zrx-danger-deep);
+    transition: background-color 0.3s ease;
+  }
+
+  .dark .zrx-button--danger:hover {
+    background-color: var(--zrx-danger-normal-58);
+    transition: background-color 0.3s ease;
+  }
+
+  .dark .zrx-button--danger:active {
+    background-color: var(--zrx-danger-normal-45);
+    transition: background-color 0.3s ease;
+  }
+
+  /*
+  =====================================================
+  success & success dark
+  =====================================================
+  */
+  .zrx-button--success {
+    background-color: var(--zrx-success-normal-10);
+    color: var(--zrx-success-deep);
+    @apply border border-solid;
+    border-color: var(--zrx-success-normal-88);
+    box-shadow:
+      rgba(52, 199, 89, 0.05) 0px 6px 24px 0px,
+      rgba(52, 199, 89, 0.08) 0px 0px 0px 1px;
+    transition: background-color 0.3s ease;
+  }
+
+  .zrx-button--success:hover {
+    background-color: var(--zrx-success-normal-26);
+    transition: background-color 0.3s ease;
+  }
+
+  .zrx-button--success:active {
+    background-color: var(--zrx-success-normal-45);
+    transition: background-color 0.3s ease;
+  }
+
+  .dark .zrx-button--success {
+    background-color: var(--zrx-success-deep);
+    color: var(--zrx-white-ff);
+    border-color: var(--zrx-success-deep);
+    transition: background-color 0.3s ease;
+  }
+
+  .dark .zrx-button--success:hover {
+    background-color: var(--zrx-success-normal-45);
+    transition: background-color 0.3s ease;
+  }
+
+  .dark .zrx-button--success:active {
+    background-color: var(--zrx-success-normal-35);
+    transition: background-color 0.3s ease;
+  }
+
+  /* Forms variant - EXACT match to input stepper buttons */
+  .zrx-button--forms {
+    background-color: transparent;
+    border: 1px solid #aaa;
+    color: #555;
+    transition: background-color 0.3s ease;
+    box-shadow: none;
+  }
+
+  .zrx-button--forms:hover:not(.zrx-button--disabled) {
+    background-color: #f3f3f3;
+    border-color: #aaa;
+    transition: background-color 0.3s ease;
+  }
+
+  .zrx-button--forms:focus-visible {
+    border-color: #007bff;
+    outline: 2px solid rgba(0, 123, 255, 0.25);
+    outline-offset: 1px;
+  }
+
+  .zrx-button--forms:active:not(.zrx-button--disabled) {
+    background-color: #e6e6e6;
+    border-color: #aaa;
+    transition: background-color 0.3s ease;
+  }
+
+  /* Dark mode forms variant - EXACT match to input stepper buttons */
+  .dark .zrx-button--forms {
+    background-color: var(--material-dark-dp06);
+    color: var(--zrx-white-ff);
+    border: 1px solid rgba(80, 80, 80, 1);
+    box-shadow: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .dark .zrx-button--forms:hover:not(.zrx-button--disabled) {
+    background-color: rgba(75, 75, 75, 1);
+    border-color: rgba(80, 80, 80, 1);
+    transition: background-color 0.3s ease;
+  }
+
+  .dark .zrx-button--forms:focus-visible {
+    border-color: #007aff;
+    outline: 2px solid rgba(59, 130, 246, 0.5);
+    outline-offset: 1px;
+  }
+
+  .dark .zrx-button--forms:active:not(.zrx-button--disabled) {
+    background-color: rgba(60, 60, 60, 1);
+    border-color: rgba(80, 80, 80, 1);
+    transition: background-color 0.3s ease;
+  }
+
+  /* Disabled state matching input stepper buttons exactly */
+  .zrx-button--forms.zrx-button--disabled {
+    background-color: #f3f3f3 !important;
+    border: 1px solid #aaa !important;
+    color: #aaa !important;
+    cursor: not-allowed !important;
+    opacity: 1 !important;
+  }
+
+  .dark .zrx-button--forms.zrx-button--disabled {
+    background-color: rgba(30, 30, 30, 1) !important;
+    border: 1px solid rgba(75, 75, 75, 1) !important;
+    color: #4b4b4b !important;
+    cursor: not-allowed !important;
+    opacity: 1 !important;
+  }
+
+  /*
+  =====================================================
+  Text adjustments for Chrome and Safari
+  =====================================================
+  */
+  .zrx-btn-text {
+    /* Base styling */
+  }
+
+  /* iOS Safari specific */
+  @supports (-webkit-touch-callout: none) {
+    .zrx-btn-text {
+      margin-top: -0.1rem;
+    }
+  }
+}

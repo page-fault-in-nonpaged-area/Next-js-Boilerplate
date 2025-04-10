@@ -1,0 +1,308 @@
+/* Base styles for the switch component */
+.zrx-switch {
+  display: inline-flex; /* Changed from flex to inline-flex */
+  border: 1px solid #aaa;
+  border-radius: 7px;
+  overflow: hidden;
+  background-color: transparent;
+  box-sizing: border-box;
+  width: max-content;
+}
+
+.zrx-switch-full-width {
+  width: 100%;
+  display: flex;
+}
+
+/* Option buttons */
+.zrx-switch-option {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  padding: 0 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+  position: relative;
+  white-space: nowrap;
+  color: inherit;
+}
+
+/* Fixed width distribution - ensure equal widths */
+.zrx-switch:not(.zrx-switch-full-width) {
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr; /* Force equal width columns */
+}
+
+.zrx-switch:not(.zrx-switch-full-width) .zrx-switch-option {
+  width: 100%; /* Fill the grid cell */
+  box-sizing: border-box;
+}
+
+.zrx-switch-full-width .zrx-switch-option {
+  flex: 1;
+}
+
+/* Divider between options */
+.zrx-switch-option + .zrx-switch-option {
+  border-left: 1px solid #aaa;
+}
+
+/* Active option - LIGHT THEME - Changed to lighter blue */
+.zrx-switch-option-active {
+  background-color: rgba(0, 122, 255, 0.1);
+  color: #007bff;
+  border-color: rgba(0, 122, 255, 0.3);
+}
+
+/* Option hover state */
+.zrx-switch-option:not(.zrx-switch-option-active):not(.zrx-switch-option-disabled):hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Option active state (mouse down) */
+.zrx-switch-option:not(.zrx-switch-option-active):not(.zrx-switch-option-disabled):active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Individual disabled option */
+.zrx-switch-option-disabled {
+  cursor: not-allowed !important; /* Added !important to ensure it's applied */
+  color: #aaa;
+  background-color: #f3f3f3;
+}
+
+/* Disabled active option - changed to gray instead of blue */
+.zrx-switch-option-disabled.zrx-switch-option-active {
+  background-color: #e0e0e0;
+  color: #777;
+  border-color: #ccc;
+}
+
+/* Entire component disabled - updated to match numerical stepper */
+.zrx-switch-disabled {
+  background-color: #f3f3f3 !important;
+  border: 1px solid #aaa !important;
+  pointer-events: auto !important; /* Allow cursor to be visible */
+}
+
+.zrx-switch-disabled .zrx-switch-option {
+  background-color: #f3f3f3 !important;
+  color: #aaa !important;
+  cursor: not-allowed !important;
+}
+
+.zrx-switch-disabled .zrx-switch-option + .zrx-switch-option {
+  border-left-color: #aaa !important;
+}
+
+.zrx-switch-disabled .zrx-switch-option-active {
+  background-color: #e0e0e0 !important;
+  color: #777 !important;
+}
+
+/* Sizes */
+.zrx-switch-small .zrx-switch-option {
+  height: 32px;
+  font-size: 12px;
+  padding: 0 8px;
+}
+
+.zrx-switch-large .zrx-switch-option {
+  height: 44px;
+  font-size: 16px;
+  padding: 0 16px;
+}
+
+/* Dark mode styling */
+.dark .zrx-switch {
+  border-color: rgba(80, 80, 80, 1);
+  background-color: transparent;
+}
+
+.dark .zrx-switch-option + .zrx-switch-option {
+  border-left-color: rgba(80, 80, 80, 1);
+}
+
+.dark .zrx-switch-option-active {
+  background-color: #087ad1; /* Updated to match primary button color */
+  color: white;
+  border-color: #087ad1;
+}
+
+.dark .zrx-switch-option:not(.zrx-switch-option-active):not(.zrx-switch-option-disabled):hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .zrx-switch-option:not(.zrx-switch-option-active):not(.zrx-switch-option-disabled):active {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Dark mode individual disabled option */
+.dark .zrx-switch-option-disabled {
+  background-color: rgba(30, 30, 30, 1);
+  color: #4b4b4b;
+  cursor: not-allowed !important;
+}
+
+.dark .zrx-switch-option-disabled.zrx-switch-option-active {
+  background-color: #444;
+  color: #777;
+  border-color: #555;
+}
+
+/* Dark mode disabled state */
+.dark .zrx-switch-disabled {
+  background-color: rgba(30, 30, 30, 1) !important;
+  border: 1px solid rgba(75, 75, 75, 1) !important;
+  pointer-events: auto !important;
+}
+
+.dark .zrx-switch-disabled .zrx-switch-option {
+  background-color: rgba(30, 30, 30, 1) !important;
+  color: #4b4b4b !important;
+  cursor: not-allowed !important;
+}
+
+.dark .zrx-switch-disabled .zrx-switch-option + .zrx-switch-option {
+  border-left-color: rgba(75, 75, 75, 1) !important;
+}
+
+.dark .zrx-switch-disabled .zrx-switch-option-active {
+  background-color: #444 !important;
+  color: #777 !important;
+}
+
+/* Add new toggle classes for success and danger buttons */
+
+/* Toggle switch style */
+.zrx-switch-toggle {
+  /* Base styling for the toggle variant */
+}
+
+/* Success (rightmost) button - not active */
+.zrx-switch-toggle .zrx-switch-option-success:not(.zrx-switch-option-active) {
+  color: #368f44;
+}
+
+/* Success (rightmost) button - active */
+.zrx-switch-toggle .zrx-switch-option-success.zrx-switch-option-active {
+  background-color: rgba(76, 217, 100, 0.1);
+  color: #368f44;
+  border-color: rgba(54, 143, 68, 0.88);
+}
+
+/* Danger (leftmost) button - not active */
+.zrx-switch-toggle .zrx-switch-option-danger:not(.zrx-switch-option-active) {
+  color: #ff3b30;
+}
+
+/* Danger (leftmost) button - active */
+.zrx-switch-toggle .zrx-switch-option-danger.zrx-switch-option-active {
+  background-color: rgba(255, 59, 48, 0.1);
+  color: #ff3b30;
+  border-color: rgba(255, 59, 48, 0.88);
+}
+
+/* Dark mode styles */
+.dark .zrx-switch-toggle .zrx-switch-option-success.zrx-switch-option-active {
+  background-color: #368f44;
+  color: white;
+  border-color: #368f44;
+}
+
+.dark .zrx-switch-toggle .zrx-switch-option-danger.zrx-switch-option-active {
+  background-color: #ff3b30;
+  color: white;
+  border-color: #ff3b30;
+}
+
+/* Hover styles for toggle buttons */
+.zrx-switch-toggle .zrx-switch-option-success:not(.zrx-switch-option-active):not(.zrx-switch-option-disabled):hover {
+  background-color: rgba(76, 217, 100, 0.05);
+}
+
+.zrx-switch-toggle .zrx-switch-option-danger:not(.zrx-switch-option-active):not(.zrx-switch-option-disabled):hover {
+  background-color: rgba(255, 59, 48, 0.05);
+}
+
+/* Dark mode hover styles */
+.dark
+  .zrx-switch-toggle
+  .zrx-switch-option-success:not(.zrx-switch-option-active):not(.zrx-switch-option-disabled):hover {
+  background-color: rgba(76, 217, 100, 0.15);
+}
+
+.dark
+  .zrx-switch-toggle
+  .zrx-switch-option-danger:not(.zrx-switch-option-active):not(.zrx-switch-option-disabled):hover {
+  background-color: rgba(255, 59, 48, 0.15);
+}
+
+/* Disabled states for toggle buttons */
+.zrx-switch-disabled .zrx-switch-option-success,
+.zrx-switch-disabled .zrx-switch-option-danger {
+  /* Override active state styling for disabled buttons */
+  background-color: #f3f3f3 !important;
+  color: #aaa !important;
+  border-color: #aaa !important;
+}
+
+.dark .zrx-switch-disabled .zrx-switch-option-success,
+.dark .zrx-switch-disabled .zrx-switch-option-danger {
+  background-color: rgba(30, 30, 30, 1) !important;
+  color: #4b4b4b !important;
+  border-color: rgba(75, 75, 75, 1) !important;
+}
+
+/* Toggle switch style - revision */
+
+/* Reset default colors for non-active states in toggle mode */
+.zrx-switch-toggle .zrx-switch-option:not(.zrx-switch-option-active) {
+  color: inherit; /* Use the default text color */
+  background-color: transparent;
+}
+
+/* Success (Enabled) button - only when active */
+.zrx-switch-toggle .zrx-switch-option-success.zrx-switch-option-active {
+  background-color: rgba(76, 217, 100, 0.1);
+  color: #368f44;
+  border-color: rgba(54, 143, 68, 0.88);
+}
+
+/* Danger (Disabled) button - only when active */
+.zrx-switch-toggle .zrx-switch-option-danger.zrx-switch-option-active {
+  background-color: rgba(255, 59, 48, 0.1);
+  color: #ff3b30;
+  border-color: rgba(255, 59, 48, 0.88);
+}
+
+/* Dark mode active states */
+.dark .zrx-switch-toggle .zrx-switch-option-success.zrx-switch-option-active {
+  background-color: #368f44;
+  color: white;
+  border-color: #368f44;
+}
+
+.dark .zrx-switch-toggle .zrx-switch-option-danger.zrx-switch-option-active {
+  background-color: #ff3b30;
+  color: white;
+  border-color: #ff3b30;
+}
+
+/* Ensure hover styles don't show colors unless active */
+.zrx-switch-toggle .zrx-switch-option:not(.zrx-switch-option-active):not(.zrx-switch-option-disabled):hover {
+  background-color: rgba(0, 0, 0, 0.05); /* Default hover color */
+  color: inherit;
+}
+
+.dark .zrx-switch-toggle .zrx-switch-option:not(.zrx-switch-option-active):not(.zrx-switch-option-disabled):hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Default dark mode hover */
+  color: inherit;
+}
